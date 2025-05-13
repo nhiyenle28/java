@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
+         http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+         version="4.0">
+
+    <display-name>bai2</display-name>
+
+    <!-- ✅ Cấu hình Servlet xử lý đăng nhập -->
+    <servlet>
+        <servlet-name>LoginServlet</servlet-name>
+        <servlet-class>controller.LoginServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LoginServlet</servlet-name>
+        <url-pattern>/login</url-pattern>
+    </servlet-mapping>
+
+    <!-- ✅ Cấu hình Filter kiểm tra input username -->
+    <filter>
+        <filter-name>InputFilter</filter-name>
+        <filter-class>filter.InputFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>InputFilter</filter-name>
+        <url-pattern>/login</url-pattern>
+    </filter-mapping>
+
+    <!-- ✅ Cấu hình Event Listener theo dõi session -->
+    <listener>
+        <listener-class>listener.SessionListener</listener-class>
+    </listener>
+
+    <!-- ✅ Cấu hình file mặc định -->
+    <welcome-file-list>
+        <welcome-file>index.html</welcome-file>
+        <welcome-file>index.jsp</welcome-file>
+        <welcome-file>index.htm</welcome-file>
+        <welcome-file>default.html</welcome-file>
+        <welcome-file>default.jsp</welcome-file>
+        <welcome-file>default.htm</welcome-file>
+    </welcome-file-list>
+
+</web-app>
