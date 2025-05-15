@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Trang Chào Mừng</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <h2 th:text="${welcome.message}">[Thông điệp]</h2>
+    <p>Thời gian hiện tại: <span th:text="${welcome.time}">[Thời gian]</span></p>
+</body>
+</html>
