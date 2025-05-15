@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Nhập Thông Tin Người Dùng</title>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        input[type="text"], input[type="email"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid #ddd;
+        }
+        th {
+            background-color: #f0f0f0;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h2>Nhập Thông Tin Người Dùng</h2>
+    <form th:action="@{/submit}" method="post" th:object="${user}">
+        <label>Họ tên:</label>
+        <input type="text" th:field="*{name}" required/>
+        <label>Email:</label>
+        <input type="email" th:field="*{email}" required/>
+        <button type="submit">Gửi</button>
+    </form>
+
+    <h3>Danh sách người dùng đã nhập:</h3>
+    <table>
+        <thead>
+            <tr><th>Họ tên</th><th>Email</th></tr>
+        </thead>
+        <tbody>
+            <tr th:each="u : ${users}">
+                <td th:text="${u.name}">Tên</td>
+                <td th:text="${u.email}">Email</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
